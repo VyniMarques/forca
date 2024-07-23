@@ -34,7 +34,14 @@ def jogo_da_forca():
         if letras_adivinhadas:
             print(f"Letras tentadas: {sorted(letras_tentadas)}")
         print(f"Tentativas restantes: {tentativas}")
-        letra = input("Adivinhe uma letra: ").lower()
+
+        # Validação da entrada
+        while True:
+            letra = input("Adivinhe uma letra: ").lower()
+            if len(letra) == 1 and letra.isalpha():
+                break
+            else:
+                print("Entrada inválida. Por favor, insisa apenas uma letra!")
 
         if letra not in letras_tentadas:
             if letra in letras_adivinhadas:

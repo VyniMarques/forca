@@ -15,6 +15,6 @@ Criar um jogo de forca que o jogador tenha uma determinada quantidade de chances
 ## Completo
 - Jogo base
 - Validar entrada
-- Tratamento de excessoes ao abrir o aquivo
+- Tratamento de exceção ao abrir o aquivo
 - Opção de jogar novamente
-- Funçoes de exibição separadas
+- Função de exibir estado do jogo

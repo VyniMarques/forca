@@ -8,7 +8,7 @@ def carregar_palavras():
             palavras = arquivo.readlines()
         return [palavra.strip() for palavra in palavras]
     except FileNotFoundError:
-        print("Ocorreu um erro, arquivo palavras.txt não encontrado!")
+        print("Ocorreu um erro, arquivo 'palavras.txt' não encontrado!")
         return []
     except Exception as ex:
         print(f"Ocorreu um erro: {ex}")
@@ -34,6 +34,14 @@ def validar_entrada():
             print("Entrada inválida. Por favor, insisa apenas uma letra!")
 
 
+def exibir_estado_jogo(
+    palavra_secreta, letras_adivinhadas, letras_tentadas, tentativas
+):
+    print(f"\nPalavra: {exibir_palavra(palavra_secreta, letras_adivinhadas)}")
+    print(f"Letras tentadas: {sorted(letras_tentadas)}")
+    print(f"Tentativas restantes: {tentativas}")
+
+
 def jogo_da_forca():
     palavras = carregar_palavras()
     if not palavras:
@@ -49,10 +57,9 @@ def jogo_da_forca():
     print("===========================")
 
     while tentativas > 0:
-        print(f"\nPalavra: {exibir_palavra(palavra_secreta, letras_adivinhadas)}")
-
-        print(f"Letras tentadas: {sorted(letras_tentadas)}")
-        print(f"Tentativas restantes: {tentativas}")
+        exibir_estado_jogo(
+            palavra_secreta, letras_adivinhadas, letras_tentadas, tentativas
+        )
 
         letra = validar_entrada()
 
@@ -72,6 +79,12 @@ def jogo_da_forca():
             print("\nVocê já tentou essa letra!")
     else:
         print(f"\nVocê perdeu! A palavra era: {palavra_secreta}\n")
+
+    jogar_novamente = input("Deseja jogar novamente? (s/n): ").lower()
+    if jogar_novamente == "s":
+        jogo_da_forca()
+    else:
+        print("Obrigado por jogar!")
 
 
 if __name__ == "__main__":

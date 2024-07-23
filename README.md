@@ -10,4 +10,8 @@ Criar um jogo de forca que o jogador tenha uma determinada quantidade de chances
 ## Metas
 - Adicionar mais palavras
 - Escolher dificuldade?
-- validar entrada
+- ...
+
+## Completo
+- Jogo base
+- Validar entrada
